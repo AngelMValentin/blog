@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Create a new post{% endblock title %}
+
+{% block content %}
+<h1>Create a new post </h1>
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Your Unique Title">
+    <label for="floatingInput">Post Title</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" placeholder="Your Post body">
+    <label for="floatingInput">Body</label>
+</div>
+<div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</div>
+{% endblock content %}
