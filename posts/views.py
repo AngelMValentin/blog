@@ -60,20 +60,20 @@ class PostListView(ListView):
         )
         return context
     
-    class DraftPostListView(ListView):
-        template_name = "posts/list.html"
-        model = Post
-        def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
-            draft = Status.objects.get(name="draft")
-            context["posts"] = (
-                Post.objects
-                .filter(status=draft)
-                .filter(author=self.request.user)
-                .order_by("created_on").reverse()
-            )
-            return context
-        
+class DraftPostListView(ListView):
+    template_name = "posts/list.html"
+    model = Post
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        draft = Status.objects.get(name="draft")
+        context["posts"] = (
+            Post.objects
+            .filter(status=draft)
+            .filter(author=self.request.user)
+            .order_by("created_on").reverse()
+        )
+        return context
+    
 
 class ArchivedPostListView(LoginRequiredMixin, ListView):
     template_name = "posts/list.html"
