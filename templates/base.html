@@ -23,6 +23,8 @@
             {% csrf_token %}
             <input value='logout' class='nav-link' type="submit">
           </form>
+          <a class="nav-link" href="{% url 'new' %}">New Post</a>
+          <a class="nav-link" href="{% url 'posts' %}">All Posts</a>
           {% else %}
           <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
           <a class='nav-link' href="{% url 'login' %}">Log In</a>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts Page{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Posts Page</h1>
+{% for post in posts %}
+<div class="card m-auto mb-3" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.subtitle }}</p>
+      <p class="card-text">{{ post.body }}</p>
+      <p class="card-text">{{ post.author }}</p>
+      <a href="{% url 'post_detail' post.pk %}" class="btn btn-outline-primary">View Post</a>
+      <a href="{% url 'delete' post.pk %}" class="btn btn-outline-danger">Delete Post</a>
+      <a href="{% url 'edit' post.pk %}" class="btn btn-outline-info">Edit Post</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
